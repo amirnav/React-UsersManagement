@@ -58,7 +58,7 @@ const Users = ()=>{
           });
     }
     const handlesearch=(e)=>{
-        setUsers(mainUsers.filter(u=>u.name.includes(e.target.value)))
+        setUsers(mainUsers.filter(e=>e.name.includes(e.target.value)))
     }
 
     return (

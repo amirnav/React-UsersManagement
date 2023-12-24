@@ -5,8 +5,6 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import { jpAxios } from '../JpAxios';
 
-
-
 const AddUser = ()=>{
     const {userId}=useParams();
     const navigate=useNavigate();
@@ -120,6 +118,6 @@ const AddUser = ()=>{
                 </form>
             </div>           
         </div>
-    )
+            )
 }
 export default AddUser;

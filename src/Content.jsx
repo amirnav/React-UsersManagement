@@ -7,7 +7,10 @@ import Todos from './todos/Todos';
 import Users from './users/Users';
 import  {Route, Routes } from 'react-router-dom';
 import AddUser from './users/addUser';
-import EditDesk from './users/EditDesk';
+import EditDeskUsers from './users/EditDeskUsers';
+import AddPost from './posts/addPost';
+import EditDeskPost from './posts/EditskPost';
+
 
 const Content = ()=>{
     const {showMenu,setShowMenu} = useContext(MainContext)
@@ -25,10 +28,13 @@ const Content = ()=>{
                     <Routes>
                         <Route path='/user' element={<Users/>} />
                         <Route path='/post' element={<Posts/>} />
-                        <Route path='/gallery' element={<Gallery/>} />
+                        <Route path='/add/post/' element={<AddPost/>}>
+                            <Route path=':id/' element={<EditDeskPost/>}/>
+                        </Route>
+                        <Route path='/gallery' element={<Gallery/>} />                            
                         <Route path='/todo' element={<Todos/>} />
                         <Route path='/add/user' element={<AddUser/>}>
-                            <Route path=':userId/' element={<EditDesk/>} />
+                            <Route path=':userId/' element={<EditDeskUsers/>} />
                         </Route>
                         <Route path='*' element={<Users/>}/>
                     </Routes>                 

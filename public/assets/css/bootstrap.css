@@ -271,6 +271,7 @@ svg {
 table {
   caption-side: bottom;
   border-collapse: collapse;
+  
 }
 
 caption {
@@ -2150,6 +2151,7 @@ progress {
   color: #6c757d;
 }
 
+
 .form-control {
   display: block;
   width: 100%;
@@ -2372,7 +2374,7 @@ textarea.form-control-lg {
   color: transparent;
   text-shadow: 0 0 0 #212529;
 }
-}
+
 .form-select-sm {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
