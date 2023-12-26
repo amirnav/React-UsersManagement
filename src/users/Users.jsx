@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import style from '../style.module.css'
-import AddUser from './addUser';
 import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
-import axios from 'axios';
 import { jpAxios } from '../JpAxios';
 
 const Users = ()=>{
@@ -11,24 +9,19 @@ const Users = ()=>{
     const[users,setUsers]=useState([]);
     const [mainUsers,setMainUsers]=useState([]);
 
-    useEffect(()=>{
+    const getUserService=()=>{
         jpAxios.get('/users').then(res=>{
             setUsers(res.data);
-            setMainUsers(res.data);
-        }).catch(err=>{
-            console.log(err);
-        })
-    },[]);
+            setMainUsers(res.data);})
+    }    
 
-    const handleDelete=(itemId)=>{
-    
+    const handleDelete=(itemId)=>{    
         swal({
             title: `Are you sure to delete ${itemId}?`,
             text: "you will not be able to recover this profile !",
             icon: "warning",
             buttons: true,
-            dangerMode: true,
-            
+            dangerMode: true,            
           })
           .then((willDelete) => {
             if (willDelete) {
@@ -48,30 +41,29 @@ const Users = ()=>{
                             icon:"error",
                             buttons:"Understand!"
                         });
-                    }
-                    
-                })
-              
+                    }                    
+                })              
             } else {
               swal("Selected profile is safe!",);
             }
           });
     }
     const handlesearch=(e)=>{
-        setUsers(mainUsers.filter(e=>e.name.includes(e.target.value)))
+        setUsers(mainUsers.filter(u=>u.name.includes(e.target.value)))
     }
+    useEffect(()=>{
+        getUserService();
+    },[]);
 
     return (
         <div className={`${style.item_content} mt-5 p-4 container-fluid`}>
             <h4 className="text-center"style={{color:"white",fontFamily:"arial",fontSize:"xx-large"}}>Users Management</h4>
-            <div className="row my-2 mb-4 justify-content-between w-100 mx-0">
-                <hr />
-                <hr />
+            <div className="row my-2 mb-4 justify-content-between w-100 mx-0">                
                 <div className="form-group col-10 col-md-6 col-lg-4">
                     <input type="text" className="form-control shadow" placeholder="Search" onChange={handlesearch}/>
                 </div>
                 <div className="col-2 text-start px-0">
-                    <Link to="add/user">
+                    <Link to="/user/add">
                     <button className="btn btn-success">
                         <i className="fas fa-plus text-light"></i>
                     </button>
@@ -99,7 +91,7 @@ const Users = ()=>{
                         <td>                            
                             <i
                              className="fas fa-edit text-warning mx-2 pointer"
-                            onClick={()=>navigate(`/add/user/${u.id}`)}></i>                            
+                            onClick={()=>navigate(`/user/add/${u.id}`)}></i>                            
                             <i className="fas fa-trash text-danger mx-2 pointer"
                             onClick={()=>handleDelete(u.id)}></i>
                         </td>
@@ -109,11 +101,8 @@ const Users = ()=>{
              </table>
             ):(
                 <h4 className='text-center text-info'>Please wait a moment!</h4>
-            )}
-           
+            )}           
         </div>
     )
-
 }
-
 export default Users;

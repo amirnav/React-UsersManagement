@@ -10,6 +10,7 @@ import AddUser from './users/addUser';
 import EditDeskUsers from './users/EditDeskUsers';
 import AddPost from './posts/addPost';
 import EditDeskPost from './posts/EditskPost';
+import Comment from './posts/comments';
 
 
 const Content = ()=>{
@@ -26,17 +27,22 @@ const Content = ()=>{
             onClick={handleShowMenu}
             ></i>             
                     <Routes>
+                        <Route path='*' element={<Users/>}/>
                         <Route path='/user' element={<Users/>} />
-                        <Route path='/post' element={<Posts/>} />
-                        <Route path='/add/post/' element={<AddPost/>}>
-                            <Route path=':id/' element={<EditDeskPost/>}/>
-                        </Route>
-                        <Route path='/gallery' element={<Gallery/>} />                            
-                        <Route path='/todo' element={<Todos/>} />
-                        <Route path='/add/user' element={<AddUser/>}>
+                        <Route path='/user/add' element={<AddUser/>}>
                             <Route path=':userId/' element={<EditDeskUsers/>} />
                         </Route>
-                        <Route path='*' element={<Users/>}/>
+
+                        <Route path='/post' element={<Posts/>} />
+                        <Route path='/post/add' element={<AddPost/>}>
+                            <Route path=':id/'/>
+                        </Route>
+
+                        <Route path='/comments/:id/' element={<Comment/>}/>
+                        <Route path='/gallery' element={<Gallery/>} />                            
+                        <Route path='/todo' element={<Todos/>} />
+                     
+                        
                     </Routes>                 
         </div>
     )
