@@ -8,7 +8,7 @@ import Users from './users/Users';
 import  {Route, Routes } from 'react-router-dom';
 import AddUser from './users/addUser';
 import EditDeskUsers from './users/EditDeskUsers';
-import AddPost from './posts/addPost';
+import AddPost from './posts/addPost2';
 import EditDeskPost from './posts/EditskPost';
 import Comment from './posts/comments';
 
