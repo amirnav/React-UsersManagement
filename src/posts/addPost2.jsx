@@ -19,8 +19,8 @@ const reducer=(state,action)=>{
             return{...state,users:action.payload}
         case "isUpdate":
             return {...state,postData:action.payload}
-        case "setInputValue":
-            return {...state,postDat:{
+        case "setInputValues":
+            return {...state,postData:{
                 ...state.postData,
                 [action.propName]:action.propValue
             }}           
@@ -34,7 +34,6 @@ const AddPost=()=>{
     const navigate=useNavigate();  
     const [data,dispatch]=useReducer(reducer,init);
 
-
     const setPostService=async()=>{
         const res=await jpAxios.post('/posts',data.postData);
         if (res){
@@ -46,6 +45,7 @@ const AddPost=()=>{
                 });
         }
     }
+
     const updatePostService=async()=>{
         const res=await jpAxios.put(`/posts/${id}`,data.postData);
         if (res){
@@ -134,7 +134,7 @@ const AddPost=()=>{
                         <button type='submit' className="btn btn-success ms-5">{id?"Edit":"Add"}
                         </button>
                     </div>  
-                    {/* <Outlet/>                                                                        */}
+                    {/* <Outlet/>*/}
                 </form>
             </div>           
         </div>

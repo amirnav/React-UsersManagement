@@ -104,9 +104,9 @@ const Posts = ()=>{
                             onClick={()=>navigate(`/post/add/${u.id}`)}></i>                            
                             <i className="fas fa-trash text-danger mx-2 pointer"
                             onClick={()=>handleDelete(u.id)}></i>
-                            <i className='fas fa-comment text-success m-2 pointer'
+                            {/* <i className='fas fa-comment text-success m-2 pointer'
                             onClick={()=>navigate(`/post/comment/${u.id}`)}
-                            ></i>
+                            ></i> */}
                         </td>
                     </tr>                    
                     </thead>

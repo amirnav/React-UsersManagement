@@ -9,7 +9,7 @@ import  {Route, Routes } from 'react-router-dom';
 import AddUser from './users/addUser';
 import EditDeskUsers from './users/EditDeskUsers';
 import AddPost from './posts/addPost2';
-import EditDeskPost from './posts/EditskPost';
+// import EditDeskPost from './posts/EditskPost';
 import Comment from './posts/comments';
 
 
@@ -40,8 +40,8 @@ const Content = ()=>{
 
                         <Route path='/comments/:id/' element={<Comment/>}/>
                         <Route path='/gallery' element={<Gallery/>} />                            
-                        <Route path='/todo' element={<Todos/>} />
-                     
+                        <Route path='/todo' element={<Todos/>} /> 
+                   
                         
                     </Routes>                 
         </div>
