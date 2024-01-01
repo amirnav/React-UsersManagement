@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import style from '../style.module.css'
 import { useNavigate } from 'react-router-dom';
 import { jpAxios } from '../JpAxios';
+import useTitle from '../hooks/useTitle';
 
 const Gallery = ()=>{
     const navigate=useNavigate();
@@ -15,7 +16,7 @@ const Gallery = ()=>{
         getGalleryService();
     },[])
     
-
+    useTitle("Galleries")
 
     return (
         <div className={`${style.item_content} mt-5 p-4 container-fluid`}>

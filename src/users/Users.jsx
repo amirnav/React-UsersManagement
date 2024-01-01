@@ -3,6 +3,7 @@ import style from '../style.module.css'
 import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { jpAxios } from '../JpAxios';
+import useTitle from '../hooks/useTitle';
 
 const Users = ()=>{
     const navigate=useNavigate();
@@ -53,7 +54,10 @@ const Users = ()=>{
     }
     useEffect(()=>{
         getUserService();
+        
     },[]);
+
+    useTitle("Users");
 
     return (
         <div className={`${style.item_content} mt-5 p-4 container-fluid`}>

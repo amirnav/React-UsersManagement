@@ -3,6 +3,7 @@ import style from '../style.module.css'
 import { jpAxios } from '../JpAxios';
 import { Link,useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
+import useTitle from '../hooks/useTitle';
 
 
 const Posts = ()=>{
@@ -61,6 +62,8 @@ const Posts = ()=>{
     useEffect(()=>{
         handleSearch()
     },[uId])
+
+    useTitle("Posts")
     return (
         <div className={`${style.item_content} mt-5 p-4 container-fluid`}>
             <h4 className="text-center"style={{color:"white",fontFamily:"arial",fontSize:"xx-large"}}>Post Management</h4>
